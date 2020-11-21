@@ -28,6 +28,7 @@ dependencies {
 	implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
 	implementation "org.springframework.boot:spring-boot-starter-log4j2:$springBootVersion"
 	implementation "org.neo4j.driver:neo4j-java-driver:$neo4jDriverVersion"
+	implementation "org.apache.kafka:kafka-clients:$kafkaVersion"
 
 	//Do not add lombok as jar dependency just use it for project compilation
 	compileOnly "org.projectlombok:lombok:$lombokVersion"

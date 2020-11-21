@@ -7,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PreDestroy;
 import java.net.URI;
 import java.util.Arrays;
-import java.util.Optional;
 
 @Slf4j
 @Configuration
@@ -22,26 +20,8 @@ public class Neo4jConfiguration {
     private static final String NEO4J_PROTOCOL = "neo4j://";
     public static final String NEO4J_DATABASE_NAME = "neo4j";
 
-    @Autowired
     private Driver neo4jDriver;
-    @Autowired
     private Session neo4jSession;
-
-    @PreDestroy
-    public void dispose() {
-        log.info("Disposing neo4j components");
-        Optional.ofNullable(neo4jSession).ifPresent(session -> {
-            log.info("Closing neo4j session");
-            session.close();
-            log.info("Done closing");
-        });
-        Optional.ofNullable(neo4jDriver).ifPresent(driver -> {
-            log.info("Closing neo4j driver");
-            driver.close();
-            log.info("Done closing");
-        });
-        log.info("Done disposing");
-    }
 
     @Bean
     public InternalDriver neo4jDriver() {
