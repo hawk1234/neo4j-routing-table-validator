@@ -14,8 +14,8 @@
                 <Pattern>%d %p %c{10} [%t] %m%n</Pattern>
             </PatternLayout>
         </Console>
-        <RollingFile name="RollingFile" fileName="${logs}/spring-quartz-example.log"
-                     filePattern="${logsOld}/spring-quartz-example-%d{yyyy-MM-dd}.log.zip">
+        <RollingFile name="RollingFile" fileName="${logs}/neo4j-routing-table-validator.log"
+                     filePattern="${logsOld}/neo4j-routing-table-validator-%d{yyyy-MM-dd}.log.zip">
             <PatternLayout charset="UTF-8">
                 <Pattern>%d %p %c{10} [%t] %m%n</Pattern>
             </PatternLayout>
@@ -24,7 +24,7 @@
             </Policies>
             <DefaultRolloverStrategy>
                 <Delete basePath="${logsOld}" maxDepth="1">
-                    <IfFileName glob="spring-quartz-example-*.log.zip">
+                    <IfFileName glob="neo4j-routing-table-validator-*.log.zip">
                         <IfAny>
                             <IfAccumulatedFileCount exceeds="14" />
                         </IfAny>
